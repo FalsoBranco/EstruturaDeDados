@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Estrutura.Queue
 {
-    public class Queue<T>
+    public class MyQueue<T>
     {
     }
 }

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ConsoleApp1
+namespace Estrutura.Stack
 {
-    public interface IStack<T>
+    public interface IMyStack<T>
     {
         public void Push(T item);
 

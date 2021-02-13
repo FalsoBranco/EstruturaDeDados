@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ConsoleApp1
+namespace Estrutura.Stack
 {
-    public class Stack<T> : IStack<T>
+    public class MyStack<T> : IMyStack<T>
     {
         private readonly List<T> _stack;
 
@@ -14,7 +14,7 @@ namespace ConsoleApp1
             return _stack.Count > 0;
         }
 
-        public Stack()
+        public MyStack()
         {
             _stack = new List<T>();
             _size = _stack.Count;
@@ -95,6 +95,11 @@ namespace ConsoleApp1
         public T[] ToArray()
         {
             return _stack.ToArray();
+        }
+
+        string IMyStack<T>.GetType()
+        {
+            throw new NotImplementedException();
         }
     }
 }
