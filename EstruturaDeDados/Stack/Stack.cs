@@ -9,6 +9,11 @@ namespace ConsoleApp1
 
         private readonly int _size;
 
+        private bool CheckHasItem()
+        {
+            return _stack.Count > 0;
+        }
+
         public Stack()
         {
             _stack = new List<T>();
@@ -22,26 +27,34 @@ namespace ConsoleApp1
 
         public void Pop()
         {
-            T removido = _stack[^1];
-            Console.WriteLine($"Removendo o {removido}");
-            _stack.Remove(_stack[^1]);
+            if (CheckHasItem())
+            {
+                _stack.Remove(_stack[^1]);
+            }
         }
 
         public void Pop(out T removido)
         {
-            removido = _stack[^1];
-            Console.WriteLine($"Removendo o {removido}");
-            _stack.Remove(_stack[^1]);
+            removido = default;
+            if (CheckHasItem())
+            {
+                removido = _stack[^1];
+                _stack.Remove(_stack[^1]);
+            }
         }
 
         public bool Search(T Target)
         {
-            for (int i = 0; i < _size; i++)
+            if (CheckHasItem())
             {
-                if (_stack[i].Equals(Target))
+                for (int i = 0; i < _size; i++)
                 {
-                    return true;
+                    if (_stack[i].Equals(Target))
+                    {
+                        return true;
+                    }
                 }
+                return false;
             }
             return false;
         }
@@ -49,38 +62,39 @@ namespace ConsoleApp1
         public bool Search(T Target, out int index)
         {
             index = -1;
-            for (int i = 0; i < _stack.Count; i++)
+            if (CheckHasItem())
             {
-                if (_stack[i].Equals(Target))
+                for (int i = 0; i < _stack.Count; i++)
                 {
-                    index = i;
-                    return true;
+                    if (_stack[i].Equals(Target))
+                    {
+                        index = i;
+                        return true;
+                    }
                 }
+                return false;
             }
             return false;
         }
 
         public void ShowStack()
         {
-            for (int i = _size; i >= 1; i--)
-            {
-                Console.WriteLine(i + ": " + _stack[i - 1]);
-            }
+            _stack.ForEach((number) => Console.WriteLine(number));
         }
 
         public void Clear()
         {
-            throw new NotImplementedException();
-        }
-
-        string IStack<T>.GetType()
-        {
-            throw new NotImplementedException();
+            _stack.Clear();
         }
 
         public T Peek()
         {
-            throw new NotImplementedException();
+            return _stack[^1];
+        }
+
+        public T[] ToArray()
+        {
+            return _stack.ToArray();
         }
     }
 }

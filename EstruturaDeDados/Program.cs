@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Estrutura.Sort;
+using System;
 
 namespace ConsoleApp1
 {
@@ -6,17 +7,22 @@ namespace ConsoleApp1
     {
         private static void Main(string[] args)
         {
-            int index;
-            var pratos = new Stack<int>();
-            Random random = new Random();
-
-            for (int i = 0; i < 100; i++)
-            {
-                pratos.Push(random.Next(1, 100));
-            }
-            pratos.ShowStack();
-            Console.WriteLine(pratos.Search(55, out index));
-            Console.WriteLine(index);
+            //var stack = new Stack<int>();
+            //Random randomNumber = new Random();
+            //for (int i = 0; i < 30; i++)
+            //{
+            //    stack.Push(randomNumber.Next(1, 25));
+            //}
+            //Sort sort = new Sort();
+            //var array = sort.InsertionSort(stack.ToArray());
+            //for (int i = 0; i < array.Length; i++)
+            //{
+            //    Console.WriteLine(array[i]);
+            //}
+            var stack = new Stack<string>();
+            int poped;
+            stack.Pop(out poped);
+            Console.WriteLine(poped);
         }
     }
 }
