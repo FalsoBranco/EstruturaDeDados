@@ -1,21 +1,17 @@
 ﻿using Estrutura.Queue;
 using Estrutura.Stack;
 using System;
-
+using Estrutura.Sort;
 using System.Text;
 
 namespace Estrutura
 {
-    public class DataStructure<T>
+    static public class DataStructure
     {
-        public static MyStack<T> Stack()
-        {
-            return new MyStack<T>();
-        }
+        public static MyStack<T> Stack<T>() => new MyStack<T>();
 
-        public static MyQueue<T> Queue()
-        {
-            return new MyQueue<T>();
-        }
+        public static MyQueue<T> Queue<T>() => new MyQueue<T>();
+
+        public static SortTypes Sorts() => new SortTypes();
     }
 }

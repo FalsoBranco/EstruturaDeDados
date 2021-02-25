@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Estrutura.Sort
 {
-    public class Sort
+    public class SortTypes
     {
         public int[] InsertionSort(int[] vet)
         {
@@ -22,6 +22,11 @@ namespace Estrutura.Sort
                 vet[Antecessor + 1] = elementoAtual;
             }
             return vet;
+        }
+
+        public override string ToString()
+        {
+            return "Sorts(InsertionSort)";
         }
     }
 }

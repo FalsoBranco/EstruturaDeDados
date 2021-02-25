@@ -1,4 +1,6 @@
 ﻿using Estrutura;
+using Estrutura.Queue;
+using Estrutura.Sort;
 using System;
 
 namespace ConsoleApp1
@@ -7,8 +9,9 @@ namespace ConsoleApp1
     {
         private static void Main(string[] args)
         {
-            var data = DataStructure<int>.Queue();
-            data.
+            SortTypes sorts = DataStructure.Sorts();
+
+            Console.WriteLine(sorts.ToString());
         }
     }
 }
