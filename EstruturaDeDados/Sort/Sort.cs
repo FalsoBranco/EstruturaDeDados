@@ -24,6 +24,26 @@ namespace Estrutura.Sort
             return vet;
         }
 
+        public int[] BubbleSort(int[] vet)
+        {
+            int tamanhoLista = vet.Length;
+
+            for (int iteracaoExterna = 0; iteracaoExterna < tamanhoLista; iteracaoExterna++)
+            {
+                for (int iteracaoInterna = 0; iteracaoInterna < tamanhoLista - 1; iteracaoInterna++)
+                {
+                    if (vet[iteracaoInterna] > vet[iteracaoInterna + 1])
+                    {
+                        var t = vet[iteracaoInterna + 1];
+                        vet[iteracaoInterna + 1] = vet[iteracaoInterna];
+                        vet[iteracaoInterna] = t;
+                    }
+                }
+            }
+
+            return vet;
+        }
+
         public override string ToString()
         {
             return "Sorts(InsertionSort)";
